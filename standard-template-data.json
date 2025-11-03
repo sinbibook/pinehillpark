@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.1.0",
-    "generatedAt": "2025-11-03T06:36:37.309Z",
+    "version": "1.2.0",
+    "generatedAt": "2025-11-03T07:20:21.067Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -118,16 +118,34 @@
         "displayOrder": 0,
         "images": [
           {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-hx1faa1kqih.jpg",
+            "sortOrder": 13,
+            "description": "",
+            "isSelected": false
+          },
+          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-1e04hm91k3j.jpg",
             "sortOrder": 7,
             "description": "",
             "isSelected": false
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-hx1faa1kqih.jpg",
-            "sortOrder": 13,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-7ghmizs3m0k.jpg",
+            "sortOrder": 3,
+            "description": "",
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-2dglynsgdt7.jpg",
+            "sortOrder": 4,
             "description": "",
             "isSelected": false
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-76yjdbqibav.jpg",
+            "sortOrder": 5,
+            "description": "",
+            "isSelected": true
           },
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761785469703-ahran015c3p.jpg",
@@ -172,24 +190,6 @@
             "isSelected": false
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-7ghmizs3m0k.jpg",
-            "sortOrder": 3,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-2dglynsgdt7.jpg",
-            "sortOrder": 4,
-            "description": "",
-            "isSelected": false
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-76yjdbqibav.jpg",
-            "sortOrder": 5,
-            "description": "",
-            "isSelected": true
-          },
-          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761787930206-u3zodbymppf.png",
             "sortOrder": 9,
             "description": "",
@@ -223,12 +223,6 @@
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574717-s64b28pvs.jpg",
-            "sortOrder": 5,
-            "description": "",
-            "isSelected": true
-          },
-          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574714-x4p4rkb43mb.jpg",
             "sortOrder": 0,
             "description": "",
@@ -251,6 +245,12 @@
             "sortOrder": 2,
             "description": "",
             "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151958228-c1t5raxtaa7.jpg",
+            "sortOrder": 0,
+            "description": "",
+            "isSelected": true
           }
         ]
       },
@@ -262,8 +262,14 @@
         "displayOrder": 0,
         "images": [
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-hnuwi1ui7n.jpg",
-            "sortOrder": 3,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576630-on41qkoe3rk.png",
+            "sortOrder": 0,
+            "description": "",
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-yj8lwa4zmd.png",
+            "sortOrder": 1,
             "description": "",
             "isSelected": true
           },
@@ -274,14 +280,8 @@
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576630-on41qkoe3rk.png",
-            "sortOrder": 0,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-yj8lwa4zmd.png",
-            "sortOrder": 1,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-hnuwi1ui7n.jpg",
+            "sortOrder": 3,
             "description": "",
             "isSelected": true
           }
@@ -1185,7 +1185,7 @@
               },
               "about": [
                 {
-                  "title": "Specials",
+                  "title": "독채",
                   "images": [
                     {
                       "id": "e998100f-9097-48c3-94de-d6b8f4959d64",
@@ -1213,7 +1213,44 @@
                     }
                   ],
                   "blockId": "da953db9-ae01-4dd1-b2fa-4d5b0659ad9d",
-                  "description": "연인과 가족이 함께하는 특별한 추억을 만들어 보세요"
+                  "description": "독채 객실은 가족 / 단체 사랑하는 사람들과 다 같이 즐기기 좋은 숙소입니다.\n"
+                },
+                {
+                  "title": "카라반",
+                  "images": [],
+                  "blockId": "1c3eb617-f549-4cfc-a930-8a7cd718be28",
+                  "description": "연인 / 가족 사랑하는 사람들과 개별바베큐를 즐길 수 있는 감성 카라반입니다."
+                },
+                {
+                  "title": "Special",
+                  "images": [
+                    {
+                      "id": "58b356ea-6a34-4e66-ab44-d342b59582e0",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1762154044826-8agfupdu92d.jpg",
+                      "sortOrder": 3,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "25408bd3-3fe4-40a6-8bd9-ae13123f6ab4"
+                    },
+                    {
+                      "id": "fab6055b-062a-444f-b786-45ef82115f94",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1762154044826-kr0s8pi1058.jpg",
+                      "sortOrder": 4,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "25408bd3-3fe4-40a6-8bd9-ae13123f6ab4"
+                    },
+                    {
+                      "id": "2e8fc076-65ea-4dde-9706-9b5b65fabdf5",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1762154044826-0ucwidnu9u8.jpg",
+                      "sortOrder": 5,
+                      "description": "",
+                      "isSelected": false,
+                      "blockId": "25408bd3-3fe4-40a6-8bd9-ae13123f6ab4"
+                    }
+                  ],
+                  "blockId": "25408bd3-3fe4-40a6-8bd9-ae13123f6ab4",
+                  "description": "야외수영장, 개별바베큐, 전기구이바베큐 등 자연속에서 즐길 수 있는 특별함이 많은 파인힐파크로 오세요"
                 }
               ]
             }
@@ -1304,22 +1341,22 @@
                   "images": []
                 },
                 "experience": {
-                  "benefits": [
-                    {
-                      "title": "공용 사워장",
-                      "description": "공용 샤워장은 전객실 고객 모두 사용 가능합니다. "
-                    }
-                  ],
                   "features": [
                     {
-                      "title": "펜션 서비스",
-                      "description": "펜션에서 제공하는 서비스 안내입니다."
+                      "title": "펜션 내 이용 가능한 매점 / 식당",
+                      "description": "편의점, 마트에 가지 않아도 펜션 내에 매점이 있어 편리한 이용이 가능합니다."
                     }
                   ],
                   "additionalInfos": [
                     {
-                      "title": "OTT 안내",
-                      "description": "스마트 TV가 설치되어 있어 개인계정 사용 시 시청 가능합니다."
+                      "title": "전기구이 바베큐",
+                      "description": "전기구이는 사전 예약을 해주셔야 준비 가능합니다."
+                    }
+                  ],
+                  "benefits": [
+                    {
+                      "title": "매점 구비 품목",
+                      "description": "주류, 담배, 과자, 아이스크림, 음료, 라면 등"
                     }
                   ]
                 }
@@ -1355,6 +1392,41 @@
                     {
                       "title": "매점 구비 품목",
                       "description": "주류, 담배, 과자, 아이스크림, 음료,라면 등 펜션에서 필요한 물품 대부분이 구비되어 있습니다. "
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "e7ab0617-be79-44ea-8066-26dab9d969e3",
+            "sections": [
+              {
+                "hero": {
+                  "title": "",
+                  "images": []
+                },
+                "about": {
+                  "title": "",
+                  "images": []
+                },
+                "experience": {
+                  "features": [
+                    {
+                      "title": "펜션 서비스",
+                      "description": "펜션에서 제공하는 서비스 안내입니다."
+                    }
+                  ],
+                  "additionalInfos": [
+                    {
+                      "title": "OTT 안내",
+                      "description": "스마트 TV가 설치되어 있어 개인계정 사용 시 시청 가능합니다."
+                    }
+                  ],
+                  "benefits": [
+                    {
+                      "title": "공용 사워장 (남/여)",
+                      "description": "공용 샤워장은 전객실 고객 모두 사용 가능합니다. "
                     }
                   ]
                 }

@@ -150,6 +150,12 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+
+  /* 빈 이미지 깜빡임 방지 - Prevent empty image flickering */
+  img[src=""],
+  img:not([src]) {
+    display: none !important;
+  }
 }
 
 /**

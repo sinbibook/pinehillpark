@@ -167,7 +167,6 @@ class RoomMapper extends BaseDataMapper {
      */
     initializeHeroSlider(room) {
         const slidesContainer = this.safeSelect('[data-room-hero-slides-container]');
-        const heroOverlay = document.querySelector('.hero-overlay');
 
         if (!slidesContainer) return;
 
@@ -185,7 +184,7 @@ class RoomMapper extends BaseDataMapper {
                 </div>
             `;
             const img = slidesContainer.querySelector('img');
-            ImageHelpers.applyPlaceholder(img, heroOverlay);
+            ImageHelpers.applyPlaceholder(img);
 
             const totalSlidesElement = this.safeSelect('[data-room-total-slides]');
             if (totalSlidesElement) {
@@ -196,7 +195,6 @@ class RoomMapper extends BaseDataMapper {
 
         // 기존 슬라이드 제거
         slidesContainer.innerHTML = '';
-        if (heroOverlay) heroOverlay.style.display = '';
 
         // 이미 정렬된 이미지 사용
         const sortedImages = selectedImages;
