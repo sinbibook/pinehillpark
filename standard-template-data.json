@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.3.0",
-    "generatedAt": "2025-11-03T07:23:45.192Z",
+    "version": "1.4.0",
+    "generatedAt": "2025-11-03T07:25:21.229Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -1188,9 +1188,25 @@
                   "title": "독채",
                   "images": [
                     {
+                      "id": "c16ba1c0-3c8f-44a3-a378-75e8ed6ee6e4",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1762154707666-e12oqt2rgj.jpg",
+                      "sortOrder": 0,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "da953db9-ae01-4dd1-b2fa-4d5b0659ad9d"
+                    },
+                    {
                       "id": "e998100f-9097-48c3-94de-d6b8f4959d64",
                       "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1761710500587-8khirdn377o.jpg",
                       "sortOrder": 0,
+                      "description": "",
+                      "isSelected": true,
+                      "blockId": "da953db9-ae01-4dd1-b2fa-4d5b0659ad9d"
+                    },
+                    {
+                      "id": "928e57fb-50b4-4df2-b5b4-397f52025128",
+                      "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/main_about/1762154707666-vpn6yebk1ho.jpg",
+                      "sortOrder": 1,
                       "description": "",
                       "isSelected": true,
                       "blockId": "da953db9-ae01-4dd1-b2fa-4d5b0659ad9d"
