@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.0.0",
-    "generatedAt": "2025-11-03T00:45:37.947Z",
+    "version": "1.1.0",
+    "generatedAt": "2025-11-03T06:36:37.309Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -79,12 +79,6 @@
         "displayOrder": 0,
         "images": [
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/eb286f46-e13f-4c23-b75b-1ac62f47cbe4/main/1761635221368-i9b6xffb1e.jpg",
-            "sortOrder": 4,
-            "description": "",
-            "isSelected": true
-          },
-          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/eb286f46-e13f-4c23-b75b-1ac62f47cbe4/main/1761638477047-xzbgm2uet1o.jpg",
             "sortOrder": 0,
             "description": "",
@@ -95,6 +89,12 @@
             "sortOrder": 2,
             "description": "",
             "isSelected": false
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/eb286f46-e13f-4c23-b75b-1ac62f47cbe4/main/1761635221368-i9b6xffb1e.jpg",
+            "sortOrder": 4,
+            "description": "",
+            "isSelected": true
           },
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/eb286f46-e13f-4c23-b75b-1ac62f47cbe4/main/1761811927649-e3j35829wr9.jpg",
@@ -118,28 +118,16 @@
         "displayOrder": 0,
         "images": [
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-hx1faa1kqih.jpg",
-            "sortOrder": 13,
-            "description": "",
-            "isSelected": false
-          },
-          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-1e04hm91k3j.jpg",
             "sortOrder": 7,
             "description": "",
             "isSelected": false
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-76yjdbqibav.jpg",
-            "sortOrder": 5,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-hx1faa1kqih.jpg",
+            "sortOrder": 13,
             "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245968-bfglop63smp.jpg",
-            "sortOrder": 0,
-            "description": "",
-            "isSelected": true
+            "isSelected": false
           },
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761785469703-ahran015c3p.jpg",
@@ -166,6 +154,12 @@
             "isSelected": false
           },
           {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245968-bfglop63smp.jpg",
+            "sortOrder": 0,
+            "description": "",
+            "isSelected": true
+          },
+          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761783347302-1ozpge6zfg4.jpg",
             "sortOrder": 1,
             "description": "",
@@ -190,6 +184,12 @@
             "isSelected": false
           },
           {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761871245969-76yjdbqibav.jpg",
+            "sortOrder": 5,
+            "description": "",
+            "isSelected": true
+          },
+          {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761787930206-u3zodbymppf.png",
             "sortOrder": 9,
             "description": "",
@@ -211,91 +211,79 @@
       },
       {
         "id": "305483fe-6f2e-439c-89fb-659679aa4373",
-        "name": "서비스",
-        "description": "1. 샤워장 \n2. 와이파이 \n3. 넷플릭스, 유튜브 시청 가능\n",
-        "usageGuide": "[ 샤워장 ]\n남자 / 여자 샤워장 구비 \n- 전 객실 이용 고객 이용 가능\n\n[ 서비스 ]\n- 전 객실 와이파이 가능\n- 넷플릭스, 유튜브 시청 가능 (개인계정 사용)",
-        "displayOrder": 0,
-        "images": [
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1761635223682-k74rlfrbfr.jpg",
-            "sortOrder": 0,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1761635223682-85u0y2djj52.jpg",
-            "sortOrder": 1,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1761882390131-dhuk2pu55ep.jpg",
-            "sortOrder": 2,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1761882390132-x0x68q55ji.png",
-            "sortOrder": 3,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1761882390132-430j0yvtuqh.png",
-            "sortOrder": 4,
-            "description": "",
-            "isSelected": true
-          }
-        ]
-      },
-      {
-        "id": "63361d7e-3a79-4b8a-ba49-eff3c3233fdd",
         "name": "매점 / 식당",
         "description": "- 펜션 내 매점이 있어 편리하게 이용 가능합니다. \n- 전기구이 바베큐는 사전 예약 시 이용 가능합니다.",
         "usageGuide": "[ 식당 / 매점 ]  \n1. 매점 \n- 펜션 내 매점 이용 가능 \n- 판매 물품 : 주류, 담배, 과자, 아이스크림, 음료 등\n\n2. 전기구이 바베큐  \n- 전기구이 통닭 : 펜션 이용 고객 1마리 1만원 \n- 전기구이 목살바베큐 : 펜션으로 가격문의 \n※ 전기구이는 사전 예약을 해주셔야 준비 가능합니다\n※ 펜션으로 입실 전까지 예약 부탁드립니다. ",
         "displayOrder": 0,
         "images": [
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761635224618-xrb5gcnkjpf.jpg",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574716-0d8u32m5g2j7.jpg",
             "sortOrder": 1,
             "description": "",
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761635224618-1uhmtwq573.jpg",
-            "sortOrder": 3,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574717-s64b28pvs.jpg",
+            "sortOrder": 5,
             "description": "",
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761641982211-7wpdx8ienfo.jpg",
-            "sortOrder": 4,
-            "description": "",
-            "isSelected": false
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761641982212-575x02mluzo.jpg",
-            "sortOrder": 6,
-            "description": "",
-            "isSelected": true
-          },
-          {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761638478827-hwr4n38j3rn.jpg",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574714-x4p4rkb43mb.jpg",
             "sortOrder": 0,
             "description": "",
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761635224618-sajyomc3i6a.jpg",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574717-j7b30e1vast.jpg",
+            "sortOrder": 3,
+            "description": "",
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574717-83bn6bx4pci.jpg",
+            "sortOrder": 4,
+            "description": "",
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574717-0byxa43b8dk.jpg",
+            "sortOrder": 2,
+            "description": "",
+            "isSelected": true
+          }
+        ]
+      },
+      {
+        "id": "e7ab0617-be79-44ea-8066-26dab9d969e3",
+        "name": "서비스",
+        "description": "1. 샤워장 \n2. 와이파이 \n3. 넷플릭스, 유튜브 시청 가능\n",
+        "usageGuide": "[ 샤워장 ]\n남자 / 여자 샤워장 구비 \n- 전 객실 이용 고객 이용 가능\n\n[ 서비스 ]\n- 전 객실 와이파이 가능\n- 넷플릭스, 유튜브 시청 가능 (개인계정 사용)",
+        "displayOrder": 0,
+        "images": [
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-hnuwi1ui7n.jpg",
+            "sortOrder": 3,
+            "description": "",
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-pq0xzehp5y.jpg",
             "sortOrder": 2,
             "description": "",
             "isSelected": true
           },
           {
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/63361d7e-3a79-4b8a-ba49-eff3c3233fdd/main/1761641982212-xs427mgwf1n.jpg",
-            "sortOrder": 5,
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576630-on41qkoe3rk.png",
+            "sortOrder": 0,
             "description": "",
-            "isSelected": false
+            "isSelected": true
+          },
+          {
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576631-yj8lwa4zmd.png",
+            "sortOrder": 1,
+            "description": "",
+            "isSelected": true
           }
         ]
       }
@@ -1413,7 +1401,6 @@
           ]
         }
       }
-    },
-    "id": "12eb3b7b-2220-4982-ba06-837d1c627913"
+    }
   }
 }

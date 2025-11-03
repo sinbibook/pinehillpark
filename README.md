@@ -1,2 +1,2 @@
-# pinehillpark
+# template-full-banner-image
 
