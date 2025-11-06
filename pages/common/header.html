@@ -64,12 +64,20 @@
                         </div>
                     </nav>
 
-                    <!-- Desktop Reservation Button -->
-                    <button class="reservation-btn" data-booking-engine>
+                    <!-- YBS Reservation Button -->
+                    <button class="header-btn ybs-btn hidden" data-ybs-booking>
                         <svg class="icon" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0118 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
                         </svg>
-                        <span>예약</span>
+                        <span>YBS</span>
+                    </button>
+
+                    <!-- Desktop Reservation Button -->
+                    <button class="header-btn reservation-btn" data-booking-engine>
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0118 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                        </svg>
+                        <span>실시간 예약</span>
                     </button>
                 </div>
 
@@ -130,13 +138,24 @@
                 </div>
             </div>
 
-            <!-- Mobile Reservation Button -->
-            <button class="mobile-reservation-btn" data-booking-engine>
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0118 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
-                </svg>
-                <span>예약</span>
-            </button>
+            <!-- Mobile Reservation Buttons Container -->
+            <div class="mobile-reservation-buttons">
+                <!-- Mobile YBS Reservation Button -->
+                <button class="mobile-header-btn mobile-ybs-btn hidden" data-ybs-booking>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0118 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                    </svg>
+                    <span>YBS</span>
+                </button>
+
+                <!-- Mobile Reservation Button -->
+                <button class="mobile-header-btn mobile-reservation-btn" data-booking-engine>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0118 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0118 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                    </svg>
+                    <span>실시간 예약</span>
+                </button>
+            </div>
         </div>
 
     <!-- Preview Handler for Admin Integration -->

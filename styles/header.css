@@ -1,3 +1,8 @@
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
 /* Header Component Styles */
 .header {
     width: 100%;
@@ -309,8 +314,8 @@
 
 .sub-reservation-1 { left: 332px; top: 29px; }
 
-/* Reservation Button */
-.reservation-btn {
+/* Desktop Reservation Buttons - Common Styles */
+.header-btn {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -325,13 +330,28 @@
     margin-top: 0.5rem;
 }
 
-.reservation-btn:hover {
+.header-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
 }
 
-.reservation-btn:active {
+.header-btn:active {
     transform: scale(0.95);
+}
+
+.header.scrolled .header-btn {
+    background: rgba(13, 69, 130, 0.1);
+    border: 1px solid rgba(13, 69, 130, 0.2);
+    color: #0d4582;
+}
+
+.header.scrolled .header-btn:hover {
+    background: rgba(13, 69, 130, 0.2);
+}
+
+/* YBS Button - Unique Styles */
+.ybs-btn {
+    margin-right: 0.5rem;
 }
 
 /* Mobile Menu Toggle */
@@ -442,7 +462,17 @@
     color: white;
 }
 
-.mobile-reservation-btn {
+/* Mobile Reservation Buttons Container */
+.mobile-reservation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Mobile Reservation Buttons - Common Styles */
+.mobile-header-btn {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -455,9 +485,10 @@
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 1rem;
+    flex: 0 0 auto;
 }
 
-.mobile-reservation-btn:hover {
+.mobile-header-btn:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
@@ -485,7 +516,7 @@
         font-size: 1rem;
         padding: 0.75rem;
     }
-    .mobile-reservation-btn {
+    .mobile-header-btn {
         padding: 0.75rem 2rem;
         font-size: 1.125rem;
     }

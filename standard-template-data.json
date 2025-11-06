@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.7.0",
-    "generatedAt": "2025-11-04T03:08:20.495Z",
+    "version": "1.8.0",
+    "generatedAt": "2025-11-06T03:31:58.019Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -113,9 +113,9 @@
       {
         "id": "aa542bf4-006d-4293-bc08-0ee3956ffa00",
         "name": "개별바베큐 / 바베큐장",
-        "description": "숯불바베큐 / 전기그릴 바베큐 선택 가능\n-바베큐장 장소\n-독채 : 숯붗 바베큐 이용 시 실외 바베큐장 / 전기그릴은 객실 이용\n-카라반 : 개별바베큐장",
+        "description": "숯불바베큐 / 전기그릴 바베큐 선택 가능",
         "usageGuide": "[ 개별바베큐 ]\n-숯불바베큐 / 전기그릴 바베큐 \n-바베큐장 장소\n-독채 : 숯붗 바베큐 이용 시 실외 바베큐장 / 전기그릴은 객실 이용\n-카라반 : 개별바베큐장\n-이용금액: 30,000원(4인 기준) / 독채 객실 추가요금: 인 당 5,000원 \n-이용시간: 15:00 ~ 22:00\n※카라반 개별바베큐장 내 냉난방기가 구비되어 사계절 이용 가능 \n※우천 및 동계 시 사용 가능\n※개인 숯, 그릴 지참 불가능",
-        "displayOrder": 0,
+        "displayOrder": 1,
         "images": [
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/aa542bf4-006d-4293-bc08-0ee3956ffa00/main/1761635222664-hx1faa1kqih.jpg",
@@ -214,7 +214,7 @@
         "name": "매점 / 식당",
         "description": "- 펜션 내 매점이 있어 편리하게 이용 가능합니다. \n- 전기구이 바베큐는 사전 예약 시 이용 가능합니다.",
         "usageGuide": "[ 식당 / 매점 ]  \n1. 매점 \n- 펜션 내 매점 이용 가능 \n- 판매 물품 : 주류, 담배, 과자, 아이스크림, 음료 등\n\n2. 전기구이 바베큐  \n- 전기구이 통닭 : 펜션 이용 고객 1마리 1만원 \n- 전기구이 목살바베큐 : 펜션으로 가격문의 \n※ 전기구이는 사전 예약을 해주셔야 준비 가능합니다\n※ 펜션으로 입실 전까지 예약 부탁드립니다. ",
-        "displayOrder": 0,
+        "displayOrder": 2,
         "images": [
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/305483fe-6f2e-439c-89fb-659679aa4373/main/1762151574716-0d8u32m5g2j7.jpg",
@@ -259,7 +259,7 @@
         "name": "서비스",
         "description": "1. 샤워장 \n2. 와이파이 \n3. 넷플릭스, 유튜브 시청 가능\n",
         "usageGuide": "[ 샤워장 ]\n남자 / 여자 샤워장 구비 \n- 전 객실 이용 고객 이용 가능\n\n[ 서비스 ]\n- 전 객실 와이파이 가능\n- 넷플릭스, 유튜브 시청 가능 (개인계정 사용)",
-        "displayOrder": 0,
+        "displayOrder": 3,
         "images": [
           {
             "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/e7ab0617-be79-44ea-8066-26dab9d969e3/main/1762151576630-on41qkoe3rk.png",
@@ -407,7 +407,8 @@
     ],
     "nameEn": "Gangneung Pine Hill Park Pension & Caravan",
     "domain": "pinehillpark.kr",
-    "gpensionId": "9695"
+    "realtimeBookingId": "9695",
+    "ybsId": "78559"
   },
   "rooms": [
     {
@@ -664,7 +665,8 @@
             }
           ]
         }
-      ]
+      ],
+      "displayOrder": 0
     },
     {
       "id": "dd8f1498-167f-428b-bbef-23e7d9842063",
@@ -835,7 +837,8 @@
             }
           ]
         }
-      ]
+      ],
+      "displayOrder": 1
     }
   ],
   "homepage": {

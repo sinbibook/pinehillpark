@@ -84,29 +84,63 @@ class HeaderFooterMapper extends BaseDataMapper {
         // 시설 메뉴 동적 생성
         this.mapFacilityMenuItems();
 
-        // 예약 버튼에 gpension_id 매핑
+        // 예약 버튼에 realtime_booking_id 매핑
         this.mapReservationButtons();
+
+        // YBS 예약 버튼에 ybsId 매핑
+        this.mapYBSButtons();
     }
 
     /**
-     * 예약 버튼에 gpension_id 매핑
+     * 예약 버튼에 realtime_booking_id 매핑
      */
     mapReservationButtons() {
         if (!this.isDataLoaded || !this.data.property) {
             return;
         }
 
-        const gpensionId = this.data.property.gpensionId;
+        const realtimeBookingId = this.data.property.realtimeBookingId;
 
-        if (!gpensionId) {
+        if (!realtimeBookingId) {
             return;
         }
 
-        // 모든 예약 버튼에 gpension_id 설정
+        // 모든 예약 버튼에 realtime_booking_id 설정
         const reservationButtons = document.querySelectorAll('[data-booking-engine]');
         reservationButtons.forEach(button => {
-            button.setAttribute('data-gpension-id', gpensionId);
+            button.setAttribute('data-realtime-booking-id', realtimeBookingId);
         });
+
+        // 예약 버튼 초기화 함수가 있으면 실행
+        if (typeof window.initializeReservationButtons === 'function') {
+            window.initializeReservationButtons();
+        }
+    }
+
+    /**
+     * YBS 예약 버튼에 ybsId 매핑
+     */
+    mapYBSButtons() {
+        if (!this.isDataLoaded || !this.data.property) {
+            return;
+        }
+
+        const ybsId = this.data.property.ybsId;
+
+        if (!ybsId) {
+            return;
+        }
+
+        // 모든 YBS 예약 버튼에 ybsId 설정
+        const ybsButtons = document.querySelectorAll('[data-ybs-booking]');
+        ybsButtons.forEach(button => {
+            button.setAttribute('data-ybs-id', ybsId);
+        });
+
+        // YBS 버튼 초기화 함수가 있으면 실행
+        if (typeof window.initializeYBSButtons === 'function') {
+            window.initializeYBSButtons();
+        }
     }
 
     /**

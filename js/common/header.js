@@ -3,6 +3,9 @@
  * 헤더 컴포넌트 기능
  */
 
+// Constants
+const YBS_BOOKING_URL_BASE = 'https://rev.yapen.co.kr/external?ypIdx=';
+
 // Header functionality - Make functions global for dynamic loading
 let mobileMenuOpen = false;
 let subMenusVisible = false;
@@ -150,17 +153,17 @@ window.addEventListener('scroll', requestTick);
 window.openReservation = function() {
     const isPreviewMode = window.parent !== window;
     const buttons = document.querySelectorAll('[data-booking-engine]');
-    const gpensionId = buttons.length > 0 ? buttons[0].getAttribute('data-gpension-id') : null;
+    const realtimeBookingId = buttons.length > 0 ? buttons[0].getAttribute('data-realtime-booking-id') : null;
 
-    if (gpensionId) {
-        const reservationUrl = `https://www.bookingplay.co.kr/booking/1/${gpensionId}`;
+    if (realtimeBookingId) {
+        const reservationUrl = `https://www.bookingplay.co.kr/booking/1/${realtimeBookingId}`;
 
         if (isPreviewMode) {
             // 미리보기 환경: 부모 창(어드민)에 메시지 전송
             window.parent.postMessage({
                 type: 'OPEN_RESERVATION',
                 url: reservationUrl,
-                gpensionId: gpensionId
+                realtimeBookingId: realtimeBookingId
             }, window.previewHandler?.parentOrigin || '*');
         } else {
             // 일반 환경: 새 창으로 열기
@@ -174,10 +177,51 @@ window.openReservation = function() {
 };
 
 /**
- * 예약 버튼 초기화
- * gpension_id를 사용하여 예약 페이지를 새 창으로 열기
+ * YBS 예약 버튼 초기화
+ * ybsId를 사용하여 YBS 예약 페이지를 새 창으로 열기
  */
-function initializeReservationButtons() {
+window.initializeYBSButtons = function() {
+    const ybsButtons = document.querySelectorAll('[data-ybs-booking]');
+
+    if (ybsButtons.length === 0) {
+        return;
+    }
+
+    ybsButtons.forEach((button) => {
+        const ybsId = button.getAttribute('data-ybs-id');
+
+        // ybsId가 있을 때만 버튼 표시
+        if (ybsId && ybsId.trim() !== '') {
+            button.classList.remove('hidden');
+
+            button.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const isPreviewMode = window.parent !== window;
+                const ybsUrl = `${YBS_BOOKING_URL_BASE}${ybsId}`;
+
+                if (isPreviewMode) {
+                    // 미리보기 환경: 부모 창(어드민)에 메시지 전송
+                    window.parent.postMessage({
+                        type: 'OPEN_YBS_RESERVATION',
+                        url: ybsUrl,
+                        ybsId: ybsId
+                    }, window.previewHandler?.parentOrigin || '*');
+                } else {
+                    // 일반 환경: 새 창으로 열기
+                    window.open(ybsUrl, '_blank', 'noopener,noreferrer');
+                }
+            };
+        }
+    });
+};
+
+/**
+ * 예약 버튼 초기화
+ * realtime_booking_id를 사용하여 예약 페이지를 새 창으로 열기
+ */
+window.initializeReservationButtons = function() {
     const reservationButtons = document.querySelectorAll('[data-booking-engine]');
 
     if (reservationButtons.length === 0) {
@@ -191,20 +235,20 @@ function initializeReservationButtons() {
             window.openReservation();
         };
     });
-}
+};
 
-// 여러 시점에서 초기화 시도
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        updateHeader();
-        initializeReservationButtons();
-    });
-} else {
+/**
+ * 페이지 버튼 초기화 통합 함수
+ */
+function initializePageButtons() {
     updateHeader();
     initializeReservationButtons();
+    initializeYBSButtons();
 }
 
-// 추가 안전장치: load 이벤트에서도 초기화
-window.addEventListener('load', () => {
-    initializeReservationButtons();
-});
+// DOM이 준비되면 버튼 초기화 실행
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePageButtons);
+} else {
+    initializePageButtons();
+}
