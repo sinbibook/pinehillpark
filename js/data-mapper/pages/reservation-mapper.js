@@ -64,8 +64,7 @@ class ReservationMapper extends BaseDataMapper {
         // Hero 제목 매핑
         const heroTitle = this.safeSelect('[data-reservation-hero-title]');
         if (heroTitle) {
-            const title = reservationData.hero?.title  || '예약안내';
-            heroTitle.textContent = title;
+            heroTitle.textContent = this.sanitizeText(reservationData.hero?.title, '예약안내 히어로 타이틀');
         }
     }
 
@@ -99,21 +98,13 @@ class ReservationMapper extends BaseDataMapper {
         // 예약 정보 제목 매핑
         const infoTitle = this.safeSelect('[data-reservation-info-title]');
         if (infoTitle) {
-            const title = reservationData?.about?.title || '예약 안내';
-            infoTitle.textContent = title;
+            infoTitle.textContent = this.sanitizeText(reservationData?.about?.title, '예약정보 타이틀');
         }
 
         // 예약 정보 설명 매핑
         const infoDescription = this.safeSelect('[data-reservation-info-description]');
         if (infoDescription) {
-            // 우선순위: customFields > reservationGuide > 기본값
-            // 다시 매핑
-            const description = reservationData?.about?.description ||
-                               `${property.name}에서 특별한 휴식을\n경험하세요. 자연과 함께하는 프리미엄 숙박\n서비스를 제공합니다.`;
-
-            // \n을 <br>로 변환하여 줄바꿈 처리
-            const formattedDescription = description.replace(/\n/g, '<br>');
-            infoDescription.innerHTML = formattedDescription;
+            infoDescription.innerHTML = this._formatTextWithLineBreaks(reservationData?.about?.description, '예약정보 설명');
         }
 
         // 연락처 정보 매핑

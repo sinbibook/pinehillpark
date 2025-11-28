@@ -39,13 +39,13 @@ class IndexMapper extends BaseDataMapper {
         const heroData = this.safeGet(this.data, 'homepage.customFields.pages.index.sections.0.hero');
 
         const taglineMain = this.safeSelect('[data-index-hero-title]');
-        if (taglineMain && heroData && heroData.title) {
-            taglineMain.textContent = heroData.title;
+        if (taglineMain && heroData) {
+            taglineMain.textContent = this.sanitizeText(heroData.title, '메인 히어로 타이틀');
         }
 
         const taglineSub = this.safeSelect('[data-index-property-description]');
-        if (taglineSub && heroData && heroData.description) {
-            taglineSub.innerHTML = heroData.description.replace(/\n/g, '<br>');
+        if (taglineSub && heroData) {
+            taglineSub.innerHTML = this._formatTextWithLineBreaks(heroData.description, '메인 히어로 설명');
         }
 
         // Hero 배경 이미지 매핑
@@ -70,17 +70,16 @@ class IndexMapper extends BaseDataMapper {
 
             // 제목 매핑
             const sectionTitle = this.safeSelect('[data-index-essence-title]');
-            if (sectionTitle && essenceData.title) {
-                sectionTitle.textContent = essenceData.title;
+            if (sectionTitle) {
+                sectionTitle.textContent = this.sanitizeText(essenceData.title, '특징 섹션 타이틀');
             }
 
             // 설명 매핑
             const sectionDescription = this.safeSelect('[data-index-essence-description]');
             if (sectionDescription) {
                 const description = essenceData.description ||
-                                 (essenceData.images && essenceData.images[0]?.description) ||
-                                 '특징 섹션 설명';
-                sectionDescription.innerHTML = description.replace(/\n/g, '<br>');
+                                 (essenceData.images && essenceData.images[0]?.description);
+                sectionDescription.innerHTML = this._formatTextWithLineBreaks(description, '특징 섹션 설명');
             }
         }
     }
@@ -104,14 +103,13 @@ class IndexMapper extends BaseDataMapper {
         if (!galleryData) return;
 
         // 제목 매핑
-        if (galleryTitle && galleryData.title) {
-            galleryTitle.textContent = galleryData.title;
+        if (galleryTitle) {
+            galleryTitle.textContent = this.sanitizeText(galleryData.title, '갤러리 섹션 타이틀');
         }
 
         // 설명 매핑
-        if (galleryDescription && galleryData.description) {
-            const formattedDescription = galleryData.description.replace(/\n/g, '<br>');
-            galleryDescription.innerHTML = formattedDescription;
+        if (galleryDescription) {
+            galleryDescription.innerHTML = this._formatTextWithLineBreaks(galleryData.description, '갤러리 섹션 설명');
         }
 
         // 기존 갤러리 아이템 제거
@@ -196,11 +194,12 @@ class IndexMapper extends BaseDataMapper {
     createGalleryItem(imageUrl, title) {
         const div = document.createElement('div');
         div.className = 'signature-item';
+        const sanitizedTitle = this.sanitizeText(title);
         div.innerHTML = `
-            <img data-image-fallback src="${imageUrl}" alt="${title}" loading="lazy">
+            <img data-image-fallback src="${imageUrl}" alt="${sanitizedTitle}" loading="lazy">
             <div class="signature-item-overlay"></div>
             <div class="signature-item-text">
-                <h5 class="signature-item-title${title && title.trim() ? ' has-text' : ''}">${title || ''}</h5>
+                <h5 class="signature-item-title${sanitizedTitle ? ' has-text' : ''}">${sanitizedTitle}</h5>
             </div>
         `;
         return div;
@@ -225,14 +224,13 @@ class IndexMapper extends BaseDataMapper {
         if (!signatureData) return;
 
         // 제목 매핑
-        if (signatureTitle && signatureData.title) {
-            signatureTitle.textContent = signatureData.title;
+        if (signatureTitle) {
+            signatureTitle.textContent = this.sanitizeText(signatureData.title, '시그니처 섹션 타이틀');
         }
 
         // 설명 매핑
-        if (signatureDescription && signatureData.description) {
-            const formattedDescription = signatureData.description.replace(/\n/g, '<br>');
-            signatureDescription.innerHTML = formattedDescription;
+        if (signatureDescription) {
+            signatureDescription.innerHTML = this._formatTextWithLineBreaks(signatureData.description, '시그니처 섹션 설명');
         }
 
         // 기존 시그니처 아이템 제거
@@ -257,8 +255,8 @@ class IndexMapper extends BaseDataMapper {
             // 이미지 기반 시그니처 아이템들 생성
             selectedImages.forEach((image, index) => {
                 const experience = {
-                    title: image.description || '특별한 순간',
-                    description: image.description || '잊을 수 없는 경험을 선사합니다',
+                    title: image.description,
+                    description: image.description,
                     image: {
                         url: image.url,
                         description: image.description
@@ -289,6 +287,7 @@ class IndexMapper extends BaseDataMapper {
     createSignatureItem(experience) {
         const div = document.createElement('div');
         div.className = 'signature-item';
+        const sanitizedTitle = this.sanitizeText(experience.title);
         div.innerHTML = `
             <img data-image-fallback
                  src="${experience.image.url}"
@@ -296,7 +295,7 @@ class IndexMapper extends BaseDataMapper {
                  loading="lazy">
             <div class="signature-item-overlay"></div>
             <div class="signature-item-text">
-                <h5 class="signature-item-title${experience.title && experience.title.trim() ? ' has-text' : ''}">${experience.title || ''}</h5>
+                <h5 class="signature-item-title${sanitizedTitle ? ' has-text' : ''}">${sanitizedTitle}</h5>
             </div>
         `;
         return div;
@@ -315,8 +314,8 @@ class IndexMapper extends BaseDataMapper {
 
         // 섹션 제목 매핑 (data 속성 사용)
         const closingTitle = this.safeSelect('[data-index-closing-title]');
-        if (closingTitle && closingData.title) {
-            closingTitle.textContent = closingData.title;
+        if (closingTitle) {
+            closingTitle.textContent = this.sanitizeText(closingData.title, '마무리 섹션 타이틀');
         }
 
         // 섹션 설명 매핑 (closingData.description 우선, 없으면 첫 번째 이미지의 description 사용)
@@ -325,8 +324,7 @@ class IndexMapper extends BaseDataMapper {
             const description = closingData.description ||
                              (closingData.images && closingData.images[0]?.description) ||
                              '마무리 섹션 설명';
-            const formattedDescription = description.replace(/\n/g, '<br>');
-            closingDescription.innerHTML = formattedDescription;
+            closingDescription.innerHTML = this._formatTextWithLineBreaks(description);
         }
 
         // 배경 이미지 매핑 (오버레이는 텍스트 포함하므로 숨기지 않음)
