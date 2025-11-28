@@ -151,9 +151,8 @@ class RoomMapper extends BaseDataMapper {
             const heroDescription = roomPageData?.data?.sections?.[0]?.hero?.title;
 
             if (heroDescription) {
-                // \n을 <br>로 변환하여 줄바꿈 처리
-                const formattedText = heroDescription.replace(/\n/g, '<br>');
-                roomHeroDescription.innerHTML = formattedText;
+                // XSS 방지 처리 후 줄바꿈을 <br>로 변환
+                roomHeroDescription.innerHTML = this._formatTextWithLineBreaks(heroDescription);
             } else {
                 // 기본값
                 roomHeroDescription.textContent = `${room.name}에서 편안한 휴식을 즐기세요.`;
@@ -247,12 +246,10 @@ class RoomMapper extends BaseDataMapper {
             const roomDesc = roomDescriptions?.find(desc => desc.roomtypeId === room.id);
             const infoDescription = roomDesc?.infoDescription;
 
-            if (infoDescription) {
-                roomInfoDescription.textContent = infoDescription;
-            } else {
-                // 기본값
-                roomInfoDescription.textContent = room.description || `${room.name}의 상세 정보입니다.`;
-            }
+            roomInfoDescription.textContent = this.sanitizeText(
+                infoDescription || room.description,
+                `${room.name}의 상세 정보입니다.`
+            );
         }
 
         // 수용인원 매핑
@@ -298,8 +295,8 @@ class RoomMapper extends BaseDataMapper {
         const roomAdditionalInfo = this.safeSelect('[data-room-additional-info]');
         if (roomAdditionalInfo) {
             const roomInfo = room.roomInfo || '편안한 휴식 공간';
-            // \n을 <br>로 변환해서 HTML에 표시
-            roomAdditionalInfo.innerHTML = roomInfo.replace(/\n/g, '<br>');
+            // XSS 방지 처리 후 줄바꿈을 <br>로 변환
+            roomAdditionalInfo.innerHTML = this._formatTextWithLineBreaks(roomInfo);
         }
     }
 
@@ -484,11 +481,8 @@ class RoomMapper extends BaseDataMapper {
             const roomPageData = this.getCurrentRoomPageData();
             const gallery = roomPageData?.data?.sections?.[0]?.gallery;
 
-            if (gallery?.title) {
-                // \n\n을 <br><br>로 변환하여 개행 처리
-                const formattedText = gallery.title.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
-                exteriorDescription.innerHTML = formattedText;
-            }
+            // XSS 방지 처리 후 줄바꿈을 <br>로 변환
+            exteriorDescription.innerHTML = this._formatTextWithLineBreaks(gallery?.title, '객실 갤러리 타이틀');
         }
 
         // Mobile gallery 매핑 (메인 이미지 제외한 나머지 3개)
@@ -602,11 +596,8 @@ class RoomMapper extends BaseDataMapper {
             const roomPageData = this.getCurrentRoomPageData();
             const gallery = roomPageData?.data?.sections?.[0]?.gallery;
 
-            if (gallery?.title) {
-                // \n\n을 <br><br>로 변환하여 개행 처리
-                const formattedText = gallery.title.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
-                exteriorDescription.innerHTML = formattedText;
-            }
+            // XSS 방지 처리 후 줄바꿈을 <br>로 변환
+            exteriorDescription.innerHTML = this._formatTextWithLineBreaks(gallery?.title, '객실 갤러리 타이틀');
         }
     }
 

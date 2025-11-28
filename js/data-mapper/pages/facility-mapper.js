@@ -113,7 +113,7 @@ class FacilityMapper extends BaseDataMapper {
             const facilityPages = this.safeGet(this.data, 'homepage.customFields.pages.facility');
             const facilityPageData = facilityPages?.find(page => page.id === facility.id);
             const description = facilityPageData?.sections?.[0]?.hero?.title || facility.description || `${facility.name}을 이용해보세요.`;
-            heroDescription.textContent = description;
+            heroDescription.innerHTML = this._formatTextWithLineBreaks(description);
         }
     }
 
@@ -154,14 +154,13 @@ class FacilityMapper extends BaseDataMapper {
             const facilityPages = this.safeGet(this.data, 'homepage.customFields.pages.facility');
             const facilityPageData = facilityPages?.find(page => page.id === facility.id);
             const description = facilityPageData?.sections?.[0]?.about?.title || facility.description || `${facility.name}에 대한 설명입니다.`;
-            facilityContent.innerHTML = description.replace(/\n/g, '<br>');
+            facilityContent.innerHTML = this._formatTextWithLineBreaks(description);
         }
 
         // 이용안내 매핑
         const usageGuideContent = this.safeSelect('[data-facility-usage-guide]');
         if (usageGuideContent && facility.usageGuide) {
-            const formattedGuide = facility.usageGuide.replace(/\n/g, '<br>');
-            usageGuideContent.innerHTML = formattedGuide;
+            usageGuideContent.innerHTML = this._formatTextWithLineBreaks(facility.usageGuide);
         }
     }
 
@@ -198,7 +197,7 @@ class FacilityMapper extends BaseDataMapper {
     }
 
     /**
-     * Experience 섹션 매핑
+     * Experience 섹션 매핑 - 조건부 표시
      */
     mapExperienceSection() {
         const facility = this.getCurrentFacility();
@@ -207,22 +206,73 @@ class FacilityMapper extends BaseDataMapper {
         const experienceSection = this.safeSelect('[data-facility-experience-section]');
         if (!experienceSection) return;
 
-        // Experience 섹션 항상 표시
-        experienceSection.style.display = 'block';
-
         // id로 매칭
         const facilityPages = this.safeGet(this.data, 'homepage.customFields.pages.facility');
         const facilityPageData = facilityPages?.find(page => page.id === facility.id);
         const experienceData = facilityPageData?.sections?.[0]?.experience;
 
-        // Features 매핑 (데이터 없으면 기본 placeholder)
-        this.mapFacilityFeatures(experienceData?.features);
+        // 각 섹션별 유효 데이터 체크 및 매핑
+        const hasFeatures = this.mapFacilityFeatures(experienceData?.features);
+        const hasSidebarInfo = this.mapFacilitySidebarInfo(experienceData?.additionalInfos);
+        const hasBenefits = this.mapFacilityBenefits(experienceData?.benefits);
 
-        // Additional Infos 매핑 (데이터 없으면 기본 placeholder)
-        this.mapFacilitySidebarInfo(experienceData?.additionalInfos);
+        // 조건부 제목 표시 로직
+        const additionalInfoTitle = this.safeSelect('[data-additional-info-title]');
+        const benefitsTitle = this.safeSelect('[data-benefits-title]');
+        const sidebarCard = this.safeSelect('.sidebar-card');
 
-        // Benefits 매핑 (데이터 없으면 기본 placeholder)
-        this.mapFacilityBenefits(experienceData?.benefits);
+        if (additionalInfoTitle) {
+            additionalInfoTitle.style.display = hasSidebarInfo ? 'block' : 'none';
+        }
+        if (benefitsTitle) {
+            benefitsTitle.style.display = hasBenefits ? 'block' : 'none';
+        }
+        if (sidebarCard) {
+            sidebarCard.style.display = (hasSidebarInfo || hasBenefits) ? 'block' : 'none';
+        }
+
+        // sidebar-info의 margin-bottom 조정
+        const sidebarInfo = this.safeSelect('[data-facility-sidebar-info]');
+        if (sidebarInfo) {
+            // additionalInfos만 있고 benefits가 없을 때만 margin-bottom 제거
+            sidebarInfo.style.marginBottom = (hasSidebarInfo && !hasBenefits) ? '0' : '';
+        }
+
+        // Experience Grid 레이아웃 조정
+        const experienceGrid = this.safeSelect('.experience-grid');
+
+        if (experienceGrid && !hasFeatures && (hasSidebarInfo || hasBenefits)) {
+            // features가 없고 sidebar 데이터가 있을 때: single column 레이아웃
+            experienceGrid.style.gridTemplateColumns = '1fr';
+            experienceGrid.style.gap = '2rem';
+            experienceGrid.style.maxWidth = '600px'; // 박스 크기 제한
+        } else if (experienceGrid) {
+            // 기본: two column 레이아웃
+            experienceGrid.style.gridTemplateColumns = '';
+            experienceGrid.style.gap = '';
+            experienceGrid.style.maxWidth = '';
+        }
+
+        // features만 있는 경우에도 섹션은 표시 (주요특징만 보임)
+        // additionalInfos나 benefits가 있으면 추가정보 제목도 표시
+        if (hasFeatures || hasSidebarInfo || hasBenefits) {
+            experienceSection.style.display = 'block';
+        } else {
+            experienceSection.style.display = 'none';
+        }
+    }
+
+    /**
+     * 유효한 데이터 필터링 헬퍼
+     */
+    _filterValidItems(items) {
+        if (!items || !Array.isArray(items)) {
+            return [];
+        }
+        return items.filter(item =>
+            (item.title && item.title.trim()) ||
+            (item.description && item.description.trim())
+        );
     }
 
     /**
@@ -252,87 +302,115 @@ class FacilityMapper extends BaseDataMapper {
     }
 
     /**
-     * 시설 특징 매핑
+     * 시설 특징 매핑 - 유효한 데이터가 있을 때만 표시
      */
     mapFacilityFeatures(features) {
         const featuresGrid = this.safeSelect('[data-facility-features-grid]');
-        if (!featuresGrid) return;
+        if (!featuresGrid) return false;
 
-        if (!features || !Array.isArray(features) || features.length === 0) {
-            this._createPlaceholderItem(
-                featuresGrid,
-                'feature-item',
-                `<h4>특징 추가 후 제목을 입력해주세요.</h4>
-                 <p>특징 추가 후 특징 설명을 입력해주세요.</p>`
-            );
-            return;
+        // 의미있는 데이터 필터링
+        const validFeatures = this._filterValidItems(features);
+
+        if (validFeatures.length === 0) {
+            // features main content div 숨김
+            const mainContent = this.safeSelect('[data-features-main-content]');
+            if (mainContent) {
+                mainContent.style.display = 'none';
+            }
+            return false;
         }
 
+        // 유효한 데이터가 있으면 렌더링
         this._createDynamicItems(
             featuresGrid,
-            features,
+            validFeatures,
             'feature-item',
             feature => `
-                <h4>${feature.title || '특징 추가 후 제목을 입력해주세요.'}</h4>
-                <p>${feature.description || '특징 추가 후 설명을 입력해주세요.'}</p>
+                <h4>${feature.title || ''}</h4>
+                <p>${this._formatTextWithLineBreaks(feature.description || '')}</p>
             `
         );
+
+        // features main content div 표시
+        const mainContent = this.safeSelect('[data-features-main-content]');
+        if (mainContent) {
+            mainContent.style.display = 'block';
+        }
+
+        return true;
     }
 
     /**
-     * 추가 정보 매핑
+     * 추가 정보 매핑 - 유효한 데이터가 있을 때만 표시
      */
     mapFacilitySidebarInfo(additionalInfos) {
         const sidebarInfo = this.safeSelect('[data-facility-sidebar-info]');
-        if (!sidebarInfo) return;
+        if (!sidebarInfo) return false;
 
-        if (!additionalInfos || !Array.isArray(additionalInfos) || additionalInfos.length === 0) {
-            this._createPlaceholderItem(
-                sidebarInfo,
-                'sidebar-item',
-                `<div>
-                    <strong>정보 추가 후 제목을 입력해주세요:</strong> 정보 추가 후 설명을 입력해주세요.
-                </div>`
-            );
-            return;
+        // 의미있는 데이터 필터링
+        const validInfos = this._filterValidItems(additionalInfos);
+
+        if (validInfos.length === 0) {
+            // 유효한 데이터가 없으면 추가 정보 섹션만 숨김 (title은 유지)
+            sidebarInfo.innerHTML = '';
+            sidebarInfo.style.display = 'none';
+            return false;
         }
 
+        // 유효한 데이터가 있으면 렌더링
         this._createDynamicItems(
             sidebarInfo,
-            additionalInfos,
+            validInfos,
             'sidebar-item',
             info => `
                 <div>
-                    <strong>${info.title || '정보 추가 후 제목을 입력해주세요'}:</strong> ${info.description || '정보 추가 후 설명을 입력해주세요.'}
+                    <strong>${info.title || ''}:</strong> ${this._formatTextWithLineBreaks(info.description || '')}
                 </div>
             `
         );
+
+        // sidebar-info 섹션 표시
+        sidebarInfo.style.display = 'block';
+
+        return true;
     }
 
     /**
-     * 특별 혜택 매핑
+     * 특별 혜택 매핑 - 유효한 데이터가 있을 때만 표시
      */
     mapFacilityBenefits(benefits) {
         const benefitsList = this.safeSelect('[data-facility-benefits-list]');
-        if (!benefitsList) return;
+        if (!benefitsList) return false;
 
-        if (!benefits || !Array.isArray(benefits) || benefits.length === 0) {
-            this._createPlaceholderItem(
-                benefitsList,
-                '',
-                `<strong>혜택 추가 후 제목을 입력해주세요:</strong> 혜택 추가 후 설명을 입력해주세요.`,
-                'li'
-            );
-            return;
+        // 의미있는 데이터 필터링
+        const validBenefits = this._filterValidItems(benefits);
+
+        if (validBenefits.length === 0) {
+            // 유효한 데이터가 없으면 컨테이너 숨김
+            benefitsList.innerHTML = '';
+            const benefitsContainer = benefitsList.parentElement; // <div> 컨테이너
+            if (benefitsContainer) {
+                benefitsContainer.style.display = 'none';
+            }
+            return false;
         }
 
+        // 유효한 데이터가 있으면 렌더링
         this._createDynamicItems(
             benefitsList,
-            benefits,
+            validBenefits,
             '',
-            benefit => `<strong>${benefit.title || '혜택 추가 후 제목을 입력해주세요'}:</strong> ${benefit.description || '혜택 추가 후 설명을 입력해주세요.'}`,
+            benefit => `<strong>${benefit.title || ''}:</strong> ${this._formatTextWithLineBreaks(benefit.description || '')}`,
             'li'
         );
+
+        // 컨테이너 표시
+        const benefitsContainer = benefitsList.parentElement; // <div> 컨테이너
+        if (benefitsContainer) {
+            benefitsContainer.style.display = 'block';
+        }
+
+        return true;
     }
 
     /**

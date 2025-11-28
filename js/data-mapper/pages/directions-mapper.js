@@ -33,12 +33,7 @@ class DirectionsMapper extends BaseDataMapper {
         // Hero 제목 매핑 (customFields에서 우선, 없으면 기본값)
         const heroTitleElement = this.safeSelect('[data-directions-hero-title]');
         if (heroTitleElement) {
-            if (directionsHeroData?.title) {
-                heroTitleElement.textContent = directionsHeroData.title;
-            } else if (this.data.property?.name) {
-                // fallback: 펜션명 + 오시는길
-                heroTitleElement.textContent = `${this.data.property.name} 오시는길`;
-            }
+            heroTitleElement.textContent = this.sanitizeText(directionsHeroData?.title, '오시는길 히어로 타이틀');
         }
 
         // Hero 배경 이미지 매핑 (JSON에서 동적으로)
@@ -131,10 +126,10 @@ class DirectionsMapper extends BaseDataMapper {
         const notice = directionsData?.notice;
 
         // notice 데이터가 없거나 title/description이 모두 비어있으면 섹션 숨김
-        const hasTitle = notice?.title && notice.title.trim() !== '';
-        const hasDescription = notice?.description && notice.description.trim() !== '';
+        const sanitizedTitle = this.sanitizeText(notice?.title);
+        const sanitizedDescription = this.sanitizeText(notice?.description);
 
-        if (!notice || (!hasTitle && !hasDescription)) {
+        if (!notice || (!sanitizedTitle && !sanitizedDescription)) {
             if (noticeSection) noticeSection.style.display = 'none';
             return;
         }
@@ -145,22 +140,17 @@ class DirectionsMapper extends BaseDataMapper {
         // Notice 제목 매핑
         const noticeTitle = this.safeSelect('[data-directions-notice-title]');
         if (noticeTitle) {
-            noticeTitle.textContent = hasTitle ? notice.title : '';
+            noticeTitle.textContent = sanitizedTitle;
         }
 
         // Notice 설명 매핑
         const noticeDescription = this.safeSelect('[data-directions-notice-description]');
         if (noticeDescription) {
-            noticeDescription.innerHTML = ''; // 기존 콘텐츠 초기화 및 XSS 방지
-            if (hasDescription) {
-                // \n을 <br>로 변환하여 안전하게 줄바꿈 처리
-                const lines = notice.description.split('\n');
-                lines.forEach((line, index) => {
-                    noticeDescription.appendChild(document.createTextNode(line));
-                    if (index < lines.length - 1) {
-                        noticeDescription.appendChild(document.createElement('br'));
-                    }
-                });
+            if (sanitizedDescription) {
+                // XSS 방지 처리 후 줄바꿈을 <br>로 변환
+                noticeDescription.innerHTML = this._formatTextWithLineBreaks(sanitizedDescription);
+            } else {
+                noticeDescription.innerHTML = '';
             }
         }
     }
