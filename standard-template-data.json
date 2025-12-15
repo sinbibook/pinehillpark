@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.11.0",
-    "generatedAt": "2025-12-15T06:45:31.561Z",
+    "version": "1.12.0",
+    "generatedAt": "2025-12-15T06:47:05.111Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -1128,7 +1128,7 @@
           "sections": [
             {
               "hero": {
-                "title": "",
+                "title": " 오시는 길",
                 "images": [
                   {
                     "id": "d59eb833-2d83-48d1-9d2e-9e04d39a5cb9",
