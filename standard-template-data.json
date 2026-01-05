@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.12.0",
-    "generatedAt": "2025-12-15T06:47:05.111Z",
+    "version": "1.13.0",
+    "generatedAt": "2026-01-05T02:30:02.757Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -1522,7 +1522,7 @@
           "sections": [
             {
               "hero": {
-                "title": "",
+                "title": "예약안내",
                 "images": [
                   {
                     "id": "5164047b-5062-4c1c-891f-c3eaa153139f",
@@ -1535,13 +1535,13 @@
                     "id": "c6500267-12aa-44ea-b5b8-0273d98a1c95",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/reservation_hero/1761865846040-bglybrwkth9.jpg",
                     "sortOrder": 1,
-                    "description": "",
+                    "description": " ",
                     "isSelected": false
                   }
                 ]
               },
               "about": {
-                "title": "",
+                "title": "강릉 파인힐 카라반&펜션 예약안내",
                 "images": [
                   {
                     "id": "87b94899-cd4e-4b66-b722-8a7e4016e401",
@@ -1551,11 +1551,14 @@
                     "isSelected": true
                   }
                 ],
-                "description": ""
+                "description": " "
               }
             }
           ]
         }
+      },
+      "popup": {
+        "popups": []
       }
     }
   }
