@@ -144,6 +144,11 @@
     text-align: left;
 }
 
+.footer-copyright a {
+    color: white;
+    text-decoration: none;
+}
+
 /* Responsive Design - sm:px-8 */
 @media (min-width: 640px) {
     .footer {

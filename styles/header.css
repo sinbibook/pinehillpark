@@ -49,7 +49,11 @@
 }
 
 .header.scrolled .mobile-toggle {
-    color: #374151;
+    color: var(--color-secondary);
+}
+
+.header.scrolled .fixed-mobile-booking-btn {
+    color: var(--color-secondary);
 }
 
 .header.scrolled .reservation-btn {
@@ -337,6 +341,12 @@
     margin-right: 0.5rem;
 }
 
+/* Mobile Controls Container */
+.mobile-controls {
+    display: flex;
+    align-items: center;
+}
+
 /* Mobile Menu Toggle */
 .mobile-toggle {
     display: block;
@@ -382,7 +392,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1rem 1rem;  /* 헤더와 동일한 padding */
+    height: 72px;  /* 헤더와 동일한 높이 */
     background: var(--color-secondary);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -398,10 +409,11 @@
 
 /* Mobile Menu Close Button */
 .mobile-menu-close {
-    color: #374151;
+    color: white;  /* 흰색으로 변경 */
     padding: 0.5rem;
     cursor: pointer;
     transition: transform 0.1s ease;
+    position: relative;  /* 햄버거 버튼과 동일한 위치 */
 }
 
 .mobile-menu-close:active {
@@ -540,22 +552,24 @@
 
 /* Fixed Mobile Booking Button */
 .fixed-mobile-booking-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+    padding: 0.5rem;
+    background: transparent;
     border: none;
     display: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    gap: 0.375rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 999;
+    transition: all 0.2s ease;
+    color: white;
+    font-family: var(--font-ko-sub);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.fixed-mobile-booking-btn:hover {
+    opacity: 0.8;
 }
 
 .fixed-mobile-booking-btn:active {
@@ -563,12 +577,20 @@
 }
 
 .fixed-mobile-booking-btn .icon {
-    width: 30px;
-    height: 30px;
-    stroke: #666;
+    width: 1.125rem;
+    height: 1.125rem;
+    stroke: currentColor;
     stroke-width: 2;
     fill: none;
 }
+
+/* Fixed Mobile Button text */
+.fixed-mobile-booking-btn .btn-text {
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+/* Scrolled state for fixed mobile button - 삭제 (이미 위에서 처리) */
 
 /* Show only on mobile */
 @media (max-width: 1023px) {
@@ -589,6 +611,9 @@
     }
     .desktop-nav {
         display: flex;
+    }
+    .mobile-controls {
+        display: none;
     }
     .mobile-toggle {
         display: none;
