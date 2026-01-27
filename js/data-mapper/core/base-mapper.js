@@ -54,20 +54,6 @@ class BaseDataMapper {
     }
 
     /**
-     * 이미지 배열에서 선택된 이미지를 필터링하고 정렬하는 헬퍼 메서드
-     * @param {Array} images - 이미지 배열
-     * @returns {Array} 선택되고 정렬된 이미지 배열
-     */
-    _getSortedSelectedImages(images) {
-        if (!images || !Array.isArray(images)) {
-            return [];
-        }
-        return images
-            .filter(img => img.isSelected)
-            .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-    }
-
-    /**
      * 값이 비어있는지 확인하는 헬퍼 메서드
      * @private
      * @param {any} value - 확인할 값
@@ -171,6 +157,82 @@ class BaseDataMapper {
             'SPA': '힐링과 휴식을 위한 스파 시설'
         };
         return descriptions[code] || '';
+    }
+
+    // ============================================================================
+    // 🏠 CUSTOMFIELDS HELPERS (Property & Room)
+    // ============================================================================
+
+    /**
+     * 숙소 이름 가져오기 (customFields 우선, 없으면 기본값)
+     * @returns {string} 숙소 이름
+     */
+    getPropertyName() {
+        const customName = this.safeGet(this.data, 'homepage.customFields.property.name');
+        return this.sanitizeText(customName, this.safeGet(this.data, 'property.name') || '숙소명');
+    }
+
+    /**
+     * 숙소 영문명 가져오기 (customFields 우선, 없으면 기본값)
+     * @returns {string} 숙소 영문명
+     */
+    getPropertyNameEn() {
+        const customNameEn = this.safeGet(this.data, 'homepage.customFields.property.nameEn');
+        return this.sanitizeText(customNameEn, this.safeGet(this.data, 'property.nameEn') || 'PROPERTY NAME');
+    }
+
+    /**
+     * 숙소 이미지 가져오기 (customFields의 카테고리별 이미지)
+     * @param {string} imageCategory - 이미지 카테고리 (property_exterior, property_interior, property_thumbnail 등)
+     * @returns {Array} 정렬된 이미지 배열
+     */
+    getPropertyImages(imageCategory) {
+        const customImages = this.safeGet(this.data, 'homepage.customFields.property.images') || [];
+        const categoryImages = customImages.filter(img => img.category === imageCategory);
+        return ImageHelpers.filterSelectedImages(categoryImages);
+    }
+
+    /**
+     * 객실 customFields 가져오기
+     * @param {string} roomId - 객실 ID
+     * @returns {Object|null} 객실 customFields 데이터
+     */
+    getRoomTypeCustomFields(roomId) {
+        const roomtypes = this.safeGet(this.data, 'homepage.customFields.roomtypes') || [];
+        return roomtypes.find(rt => rt.id === roomId) || null;
+    }
+
+    /**
+     * 객실 이름 가져오기 (customFields 우선, 없으면 기본값)
+     * @param {Object} room - 객실 데이터
+     * @returns {string} 객실 이름
+     */
+    getRoomName(room) {
+        const customFields = this.getRoomTypeCustomFields(room.id);
+        return this.sanitizeText(customFields?.name, room.name || '객실명');
+    }
+
+    /**
+     * 객실 영문명 가져오기 (customFields 우선, 없으면 기본값)
+     * @param {Object} room - 객실 데이터
+     * @returns {string} 객실 영문명
+     */
+    getRoomNameEn(room) {
+        const customFields = this.getRoomTypeCustomFields(room.id);
+        return this.sanitizeText(customFields?.nameEn, room.nameEn || 'ROOM NAME');
+    }
+
+    /**
+     * 객실 이미지 가져오기 (customFields의 카테고리별 이미지)
+     * @param {Object} room - 객실 데이터
+     * @param {string} imageCategory - 이미지 카테고리 (roomtype_interior, roomtype_exterior, roomtype_thumbnail)
+     * @returns {Array} 정렬된 이미지 배열
+     */
+    getRoomImages(room, imageCategory) {
+        const customFields = this.getRoomTypeCustomFields(room.id);
+        const customImages = customFields?.images || [];
+        const categoryImages = customImages.filter(img => img.category === imageCategory);
+        return ImageHelpers.filterSelectedImages(categoryImages);
     }
 
     // ============================================================================
@@ -328,9 +390,8 @@ class BaseDataMapper {
         createOrUpdateMeta('og:image', imageUrl);
         createOrUpdateMeta('og:url', window.location.href);
 
-        if (this.data?.property?.name) {
-            createOrUpdateMeta('og:site_name', this.data.property.name);
-        }
+        // customFields 우선 적용
+        createOrUpdateMeta('og:site_name', this.getPropertyName());
     }
 
     /**

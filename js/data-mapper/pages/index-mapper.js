@@ -22,17 +22,19 @@ class IndexMapper extends BaseDataMapper {
     async mapHeroSection() {
         if (!this.isDataLoaded || !this.data.property) return;
 
-        const property = this.data.property;
+        // customFields 헬퍼 메서드 사용
+        const builderPropertyName = this.getPropertyName();
+        const builderPropertyNameEn = this.getPropertyNameEn();
 
         // index.html 스타일 hero 섹션 매핑 (data 속성 사용)
         const brandTitle = this.safeSelect('[data-index-property-name]');
-        if (brandTitle && property.name) {
-            brandTitle.textContent = property.name;
+        if (brandTitle) {
+            brandTitle.textContent = builderPropertyName;
         }
 
         const brandSubtitle = this.safeSelect('[data-index-property-name-en]');
-        if (brandSubtitle && property.nameEn) {
-            brandSubtitle.textContent = property.nameEn.toUpperCase();
+        if (brandSubtitle) {
+            brandSubtitle.textContent = builderPropertyNameEn.toUpperCase();
         }
 
         // 새로운 구조: homepage.customFields.pages.index.sections[0].hero
@@ -118,9 +120,7 @@ class IndexMapper extends BaseDataMapper {
         // 이미지 데이터가 있으면 처리
         if (galleryData.images && galleryData.images.length > 0) {
             // isSelected가 true인 이미지만 필터링하고 sortOrder로 정렬
-            const selectedImages = galleryData.images
-                .filter(img => img.isSelected)
-                .sort((a, b) => a.sortOrder - b.sortOrder);
+            const selectedImages = ImageHelpers.filterSelectedImages(galleryData.images);
 
             // 선택된 이미지가 없으면 2x2 그리드로 4개의 빈 placeholder 생성
             if (selectedImages.length === 0) {
@@ -239,9 +239,7 @@ class IndexMapper extends BaseDataMapper {
         // 이미지 데이터가 있으면 이미지를 사용, 없으면 experiences 사용
         if (signatureData.images && signatureData.images.length > 0) {
             // isSelected가 true인 이미지만 필터링하고 sortOrder로 정렬
-            const selectedImages = signatureData.images
-                .filter(img => img.isSelected)
-                .sort((a, b) => a.sortOrder - b.sortOrder);
+            const selectedImages = ImageHelpers.filterSelectedImages(signatureData.images);
 
             // 선택된 이미지가 없으면 2x2 그리드로 4개의 빈 placeholder 생성
             if (selectedImages.length === 0) {

@@ -42,18 +42,19 @@ class HeaderFooterMapper extends BaseDataMapper {
     mapHeaderLogo() {
         if (!this.isDataLoaded || !this.data.property) return;
 
-        const property = this.data.property;
+        // customFields 헬퍼 메서드 사용
+        const builderPropertyName = this.getPropertyName();
 
         // Header 로고 텍스트 매핑 (data-logo-text 속성 사용)
         const logoText = this.safeSelect('[data-logo-text]');
-        if (logoText && property.name) {
-            logoText.textContent = property.name;
+        if (logoText) {
+            logoText.textContent = builderPropertyName;
         }
 
         // Mobile menu property name 매핑
         const mobilePropertyName = this.safeSelect('[data-mobile-property-name]');
-        if (mobilePropertyName && property.name) {
-            mobilePropertyName.textContent = property.name;
+        if (mobilePropertyName) {
+            mobilePropertyName.textContent = builderPropertyName;
         }
 
         // Header 로고 이미지 매핑 (data-logo 속성 사용)
@@ -67,7 +68,7 @@ class HeaderFooterMapper extends BaseDataMapper {
                     ImageHelpers.applyPlaceholder(logoImage);
                 };
                 logoImage.src = logoUrl;
-                logoImage.alt = property.name || '로고';
+                logoImage.alt = builderPropertyName || '로고';
                 logoImage.classList.remove('empty-image-placeholder');
             } else {
                 ImageHelpers.applyPlaceholder(logoImage);
@@ -281,7 +282,13 @@ class HeaderFooterMapper extends BaseDataMapper {
      * 객실 메뉴 아이템 동적 생성
      */
     mapRoomMenuItems() {
-        const roomData = this.safeGet(this.data, 'rooms');
+        const roomData = this.safeGet(this.data, 'rooms') || [];
+
+        // customFields 헬퍼를 사용하여 객실명 매핑
+        const roomDataWithBuilderNames = roomData.map(room => ({
+            ...room,
+            name: this.getRoomName(room)
+        }));
 
         // 객실 전용 클릭 핸들러 (propertyDataMapper.navigateToRoom 지원)
         const roomClickHandler = (roomId) => {
@@ -293,7 +300,7 @@ class HeaderFooterMapper extends BaseDataMapper {
         };
 
         this._createMenuItems(
-            roomData,
+            roomDataWithBuilderNames,
             'sub-spaces-',
             'mobile-spaces-items',
             'room.html',
@@ -330,7 +337,8 @@ class HeaderFooterMapper extends BaseDataMapper {
     mapFooterLogo() {
         if (!this.isDataLoaded || !this.data.property) return;
 
-        const property = this.data.property;
+        // customFields 헬퍼 메서드 사용
+        const propertyName = this.getPropertyName();
 
         // Footer 로고 이미지 매핑 (data-footer-logo 속성 사용)
         const footerLogoImage = this.safeSelect('[data-footer-logo]');
@@ -343,7 +351,7 @@ class HeaderFooterMapper extends BaseDataMapper {
                     ImageHelpers.applyPlaceholder(footerLogoImage);
                 };
                 footerLogoImage.src = logoUrl;
-                footerLogoImage.alt = property.name || '로고';
+                footerLogoImage.alt = propertyName || '로고';
                 footerLogoImage.classList.remove('empty-image-placeholder');
             } else {
                 ImageHelpers.applyPlaceholder(footerLogoImage);
@@ -352,8 +360,8 @@ class HeaderFooterMapper extends BaseDataMapper {
 
         // Footer 로고 텍스트 매핑
         const footerLogoText = this.safeSelect('[data-footer-logo-text]');
-        if (footerLogoText && property.name) {
-            footerLogoText.textContent = property.name;
+        if (footerLogoText) {
+            footerLogoText.textContent = propertyName;
         }
     }
 
@@ -402,9 +410,9 @@ class HeaderFooterMapper extends BaseDataMapper {
 
         // 저작권 정보 매핑
         const copyrightElement = this.safeSelect('[data-footer-copyright]');
-        if (copyrightElement && businessInfo.businessName) {
+        if (copyrightElement) {
             const currentYear = new Date().getFullYear();
-            copyrightElement.textContent = `© ${currentYear} ${businessInfo.businessName}. All rights reserved.`;
+            copyrightElement.innerHTML = `<a href="https://www.sinbibook.com/" target="_blank" rel="noopener">© ${currentYear} 신비서. All rights reserved.</a>`;
         }
     }
 

@@ -50,7 +50,7 @@ class ReservationMapper extends BaseDataMapper {
             const heroImages = reservationData.hero?.images;
 
             // isSelected가 true인 이미지만 필터링하고 sortOrder로 정렬
-            const selectedImages = this._getSortedSelectedImages(heroImages);
+            const selectedImages = ImageHelpers.filterSelectedImages(heroImages);
 
             if (selectedImages.length === 0 || !selectedImages[0]?.url) {
                 ImageHelpers.applyPlaceholder(heroImage);
@@ -84,7 +84,7 @@ class ReservationMapper extends BaseDataMapper {
             const infoImages = reservationData?.about?.images;
 
             // isSelected가 true인 이미지만 필터링하고 sortOrder로 정렬
-            const selectedImages = this._getSortedSelectedImages(infoImages);
+            const selectedImages = ImageHelpers.filterSelectedImages(infoImages);
 
             if (selectedImages.length === 0 || !selectedImages[0]?.url) {
                 ImageHelpers.applyPlaceholder(infoImage);
@@ -308,8 +308,8 @@ class ReservationMapper extends BaseDataMapper {
         this.mapRefundSection();
 
         // 메타 태그 업데이트 (페이지별 SEO 적용)
-        const property = this.data.property;
-        const pageSEO = property?.name ? { title: `예약안내 - ${property.name}` } : null;
+        const propertyName = this.getPropertyName();
+        const pageSEO = { title: `예약안내 - ${propertyName}` };
         this.updateMetaTags(pageSEO);
 
         // Open Graph 메타 태그 매핑
@@ -317,7 +317,7 @@ class ReservationMapper extends BaseDataMapper {
         const ogTitle = pageSEO?.title || this.data?.seo?.title || '';
         const ogDescription = reservationData?.hero?.description || this.data?.seo?.description || '';
         // isSelected가 true인 이미지 중 첫 번째 이미지 사용
-        const selectedImages = this._getSortedSelectedImages(reservationData?.hero?.images);
+        const selectedImages = ImageHelpers.filterSelectedImages(reservationData?.hero?.images);
         const ogImage = selectedImages?.[0]?.url || '';
         this.mapOpenGraphTags(ogTitle, ogDescription, ogImage);
 

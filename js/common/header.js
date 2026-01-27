@@ -156,18 +156,16 @@ window.openReservation = function() {
     const realtimeBookingId = buttons.length > 0 ? buttons[0].getAttribute('data-realtime-booking-id') : null;
 
     if (realtimeBookingId) {
-        const reservationUrl = `https://www.bookingplay.co.kr/booking/1/${realtimeBookingId}`;
-
         if (isPreviewMode) {
             // 미리보기 환경: 부모 창(어드민)에 메시지 전송
             window.parent.postMessage({
                 type: 'OPEN_RESERVATION',
-                url: reservationUrl,
+                url: realtimeBookingId,
                 realtimeBookingId: realtimeBookingId
             }, window.previewHandler?.parentOrigin || '*');
         } else {
             // 일반 환경: 새 창으로 열기
-            window.open(reservationUrl, '_blank', 'noopener,noreferrer');
+            window.open(realtimeBookingId, '_blank', 'noopener,noreferrer');
         }
     } else {
         if (!isPreviewMode) {

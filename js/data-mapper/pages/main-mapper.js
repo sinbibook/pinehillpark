@@ -63,7 +63,7 @@ class MainMapper extends BaseDataMapper {
         // 이미지 데이터 확인 및 필터링
         const hasImages = heroData && heroData.images && heroData.images.length > 0;
         const selectedImages = hasImages
-            ? heroData.images.filter(img => img.isSelected).sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+            ? ImageHelpers.filterSelectedImages(heroData.images)
             : [];
 
         // 선택된 이미지가 없으면 빈 상태 표시
@@ -257,10 +257,7 @@ class MainMapper extends BaseDataMapper {
         }
 
         // isSelected: true인 이미지만 필터링하고 sortOrder로 정렬한 후 최대 2개까지만 표시
-        const selectedImages = images
-            .filter(img => img.isSelected)
-            .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
-            .slice(0, 2);
+        const selectedImages = ImageHelpers.filterSelectedImages(images).slice(0, 2);
 
         const limitedImages = selectedImages;
 
@@ -332,10 +329,10 @@ class MainMapper extends BaseDataMapper {
 
         // Open Graph 메타 태그 매핑
         const mainData = this.safeGet(this.data, 'homepage.customFields.pages.main.sections.0');
-        const ogTitle = this.data?.seo?.title || this.data?.property?.name || '';
+        const ogTitle = this.data?.seo?.title || this.getPropertyName() || '';
         const ogDescription = mainData?.hero?.description || this.data?.seo?.description || '';
         // Hero 슬라이더 선택 로직과 동일: isSelected 및 sortOrder 고려
-        const selectedImages = mainData?.hero?.images?.filter(img => img.isSelected).sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0)) ?? [];
+        const selectedImages = ImageHelpers.filterSelectedImages(mainData?.hero?.images);
         const ogImage = selectedImages[0]?.url || '';
         this.mapOpenGraphTags(ogTitle, ogDescription, ogImage);
 

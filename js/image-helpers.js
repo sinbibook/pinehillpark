@@ -20,9 +20,7 @@ const ImageHelpers = {
         }
 
         try {
-            const selectedImages = imagesData
-                .filter(img => img.isSelected)
-                .sort((a, b) => a.sortOrder - b.sortOrder);
+            const selectedImages = this.filterSelectedImages(imagesData);
 
             if (selectedImages.length > 0 && selectedImages[0].url) {
                 const firstImage = selectedImages[0];
@@ -57,6 +55,19 @@ const ImageHelpers = {
         imageElement.classList.add('empty-image-placeholder');
         imageElement.style.opacity = '1';
         if (overlayElement) overlayElement.style.display = 'none';
+    },
+
+    /**
+     * 선택된 이미지만 필터링하고 sortOrder로 정렬
+     * @param {Array} images - 이미지 배열
+     * @returns {Array} isSelected가 true인 이미지들을 sortOrder로 정렬한 배열
+     */
+    filterSelectedImages(images) {
+        if (!images || !Array.isArray(images)) return [];
+
+        return images
+            .filter(img => img.isSelected)
+            .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
     },
 
     /**

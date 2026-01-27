@@ -82,10 +82,7 @@ class FacilityMapper extends BaseDataMapper {
         const heroImage = this.safeSelect('[data-facility-hero-image]');
         if (heroImage) {
             // facility.images 배열에서 이미지 가져오기 (isSelected: true만 필터링 후 sortOrder로 정렬)
-            const mainImages = facility.images || [];
-            const selectedImages = mainImages
-                .filter(img => img.isSelected)
-                .sort((a, b) => a.sortOrder - b.sortOrder);
+            const selectedImages = ImageHelpers.filterSelectedImages(facility.images);
 
             if (selectedImages.length > 0 && selectedImages[0]?.url) {
                 heroImage.src = selectedImages[0].url;
@@ -169,10 +166,7 @@ class FacilityMapper extends BaseDataMapper {
      */
     mapFacilityImages(facility) {
         // facility.images 배열에서 이미지 가져오기 (isSelected: true만 필터링 후 sortOrder로 정렬)
-        const mainImages = facility.images || [];
-        const selectedImages = mainImages
-            .filter(img => img.isSelected)
-            .sort((a, b) => a.sortOrder - b.sortOrder);
+        const selectedImages = ImageHelpers.filterSelectedImages(facility.images);
 
         // 이미지 적용 헬퍼 함수
         const applyImage = (element, image) => {
@@ -435,10 +429,7 @@ class FacilityMapper extends BaseDataMapper {
         }
 
         // facility.images 배열에서 이미지 가져오기 (isSelected: true만 필터링 후 sortOrder로 역순 정렬)
-        const mainImages = facility.images || [];
-        const selectedImages = mainImages
-            .filter(img => img.isSelected)
-            .sort((a, b) => b.sortOrder - a.sortOrder);
+        const selectedImages = ImageHelpers.filterSelectedImages(facility.images).reverse();
 
         if (selectedImages.length === 0) {
             // 선택된 이미지가 없으면 빈 슬라이드 1개 표시
@@ -554,15 +545,15 @@ class FacilityMapper extends BaseDataMapper {
         this.mapSliderSection();
 
         // 메타 태그 업데이트 (페이지별 SEO 적용)
-        const property = this.data.property;
-        const pageSEO = (facility?.name && property?.name) ? { title: `${facility.name} - ${property.name}` } : null;
+        const propertyName = this.getPropertyName();
+        const pageSEO = facility?.name ? { title: `${facility.name} - ${propertyName}` } : null;
         this.updateMetaTags(pageSEO);
 
         // Open Graph 메타 태그 매핑
         const ogTitle = pageSEO?.title || this.data?.seo?.title || '';
         const ogDescription = facility?.description || this.data?.seo?.description || '';
         // Hero 이미지 선택 로직과 동일: isSelected 및 sortOrder 고려
-        const selectedImages = facility?.images?.filter(img => img.isSelected).sort((a, b) => a.sortOrder - b.sortOrder) ?? [];
+        const selectedImages = ImageHelpers.filterSelectedImages(facility?.images);
         const ogImage = selectedImages[0]?.url || '';
         this.mapOpenGraphTags(ogTitle, ogDescription, ogImage);
 
