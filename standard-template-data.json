@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.18.0",
-    "generatedAt": "2026-01-27T06:04:12.346Z",
+    "version": "1.19.0",
+    "generatedAt": "2026-03-27T07:25:49.108Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -49,10 +49,10 @@
       "businessNumber": "260-21-02454",
       "representativeName": "최한영",
       "businessAddress": "강원도 강릉시 사천면 중앙서로 92-108",
-      "businessPhone": "",
-      "businessEmail": "",
-      "businessType": "",
-      "businessCategory": "",
+      "businessPhone": "010-5367-7231",
+      "businessEmail": "555@naver.com",
+      "businessType": "individual",
+      "businessCategory": "야영장업",
       "eCommerceRegistrationNumber": ""
     },
     "contractInfo": {
@@ -505,6 +505,7 @@
       "name": "독채",
       "description": "독채형 :  \n- 1층 : 거실1+주방1+침대룸2 +화장실2\n- 2층(다락) : 침대룸1+ 온돌룸1 +화장실1",
       "roomInfo": "[인원추가요금 (1박기준/현장결제) ]\n- 독채 : 24개월 이상 1인 30,000원\n-24개월 미만은 무료이나 인원에는 포함",
+      "usageGuide": "인원추가비 \n",
       "group": null,
       "size": 150,
       "baseOccupancy": 4,
@@ -785,6 +786,7 @@
       "name": "카라반",
       "description": "카라반 원룸형 : 침대룸+주방+화장실+개별바베큐장\n- 침대 3개(퀸1+2층 싱글침대) \n",
       "roomInfo": "[인원추가요금 (1박기준/현장결제) ]\n- 카라반 : 24개월 이상 1인 20,000원\n- 24개월 미만은 무료이나 인원에는 포함",
+      "usageGuide": "추가 내용",
       "group": null,
       "size": 19,
       "baseOccupancy": 2,

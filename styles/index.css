@@ -10,6 +10,13 @@
     flex-direction: column;
 }
 
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+        min-height: 60vh;
+    }
+}
+
 .hero-background {
     position: absolute;
     inset: 0;
@@ -276,7 +283,6 @@
 }
 
 .essence-image-container {
-    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
@@ -349,14 +355,13 @@
 .signature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 20px;
     min-height: 200px;
 }
 
 .gallery-item,
 .signature-item {
     position: relative;
-    border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -436,12 +441,12 @@
 .index-closing {
     background: white;
     position: relative;
-    max-height: 30vh;
+    max-height: 50vh;
 }
 
 .index-closing img {
     width: 100%;
-    height: 30vh;
+    height: 50vh;
     object-fit: cover;
 }
 
@@ -637,7 +642,7 @@
 
     .gallery-grid,
     .signature-grid {
-        gap: 1.5rem;
+        gap: 20px;
         margin-bottom: 3rem;
     }
 
@@ -701,7 +706,7 @@
 
     .gallery-grid,
     .signature-grid {
-        gap: 2rem;
+        gap: 20px;
     }
 }
 
@@ -743,7 +748,7 @@
 
     .gallery-grid,
     .signature-grid {
-        gap: 3rem;
+        gap: 20px;
     }
 
     .essence-image,

@@ -92,7 +92,7 @@
 }
 
 .hero-title h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   color: white;
   margin-bottom: 24px;
   line-height: 1.1;
@@ -200,13 +200,12 @@
 
 .image-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
 .image-item {
-  aspect-ratio: 3/4;
-  border-radius: 8px;
+  aspect-ratio: 16/9;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -307,7 +306,7 @@
   }
 
   .hero-title h1 {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 
   .hero-title p {
@@ -353,15 +352,15 @@
   }
 
   .image-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
   }
 }
 
 @media (max-width: 767px) {
   .hero-section {
-    height: 70vh;
-    min-height: 70vh;
+    height: 60vh;
+    min-height: 60vh;
   }
 }
 
