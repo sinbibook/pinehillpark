@@ -1,7 +1,7 @@
 /* Facility Page Specific Styles */
 
 :root {
-    --facility-slider-height-mobile: 400px;
+    --facility-slider-height-mobile: 300px;
     --facility-slider-height-desktop: 700px;
 }
 
@@ -113,7 +113,6 @@
 
 .small-image {
     aspect-ratio: 4/3;
-    border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -243,7 +242,6 @@
 
 .large-image {
     aspect-ratio: 4/3;
-    border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -251,7 +249,6 @@
 @media (min-width: 640px) {
     .large-image {
         aspect-ratio: 3/4;
-        border-radius: 1rem;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 }
@@ -498,7 +495,6 @@
     width: 100%;
     height: var(--facility-slider-height-mobile);
     overflow: hidden;
-    border-radius: 12px;
 }
 
 @media (min-width: 768px) {

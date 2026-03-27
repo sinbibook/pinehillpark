@@ -385,7 +385,6 @@
 
 .room-gallery .gallery-item {
     overflow: hidden;
-    border-radius: 0.5rem;
     aspect-ratio: 4/3;
     opacity: 1;
 }
@@ -447,7 +446,6 @@
 .exterior-image-container {
     aspect-ratio: 16/10;
     overflow: hidden;
-    border-radius: 0.5rem;
 }
 
 .exterior-image-container img,
@@ -504,7 +502,6 @@
     flex-shrink: 0;
     aspect-ratio: 4/3;
     overflow: hidden;
-    border-radius: 0.5rem;
     width: calc(60vw - 16px);
     scroll-snap-align: start;
     pointer-events: none;
@@ -534,7 +531,6 @@
 .desktop-gallery-item {
     aspect-ratio: 4/3;
     overflow: hidden;
-    border-radius: 0.5rem;
     cursor: pointer;
 }
 

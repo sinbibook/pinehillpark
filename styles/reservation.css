@@ -13,8 +13,8 @@
 /* Mobile hero height */
 @media (max-width: 767px) {
     .hero-section {
-        height: 70vh;
-        min-height: 70vh;
+        height: 60vh;
+        min-height: 60vh;
     }
 }
 
@@ -76,7 +76,6 @@
 .info-image {
     aspect-ratio: 4/3;
     overflow: hidden;
-    border-radius: 0.5rem;
 }
 
 .info-image img {
