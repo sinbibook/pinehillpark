@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.23.0",
-    "generatedAt": "2026-04-23T03:55:30.947Z",
+    "version": "1.24.0",
+    "generatedAt": "2026-04-27T05:46:07.593Z",
     "templateType": "full_banner_image",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -1325,79 +1325,93 @@
                 "title": "고요한 자연의 소리를 느낄 수 있는 곳",
                 "images": [
                   {
+                    "id": "44daf477-4fd0-4b22-bb3c-ff2626311b9b",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1777268727179-lhnte13ct6.jpg",
+                    "sortOrder": 0,
+                    "description": "",
+                    "isSelected": true
+                  },
+                  {
                     "id": "05f0865c-1bdb-4465-9671-2174395e5c3b",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1764294283388-zhzily9fs9q.jpg",
-                    "sortOrder": 0,
+                    "sortOrder": 1,
+                    "description": "",
+                    "isSelected": true
+                  },
+                  {
+                    "id": "c7f0f001-e149-4d7c-85b6-7edd96c6fbbe",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1777268727180-enuk05uuk2j.jpeg",
+                    "sortOrder": 2,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "81b74598-c3c1-432a-94d6-2e2b32efd600",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1764294283388-dmupoa32koq.jpg",
-                    "sortOrder": 1,
+                    "sortOrder": 3,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "c791560a-50ca-4571-afa3-7329f7e3c0f7",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1764294283389-fs5f2efpff.jpg",
-                    "sortOrder": 2,
+                    "sortOrder": 4,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "634db9a2-c372-4102-a77c-b7856701d723",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1761638021553-dhbhwdf4tot.jpg",
-                    "sortOrder": 3,
+                    "sortOrder": 5,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "886f4a92-8be8-48b7-832c-506a4897cbb4",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1761811152773-twxakna8dts.jpg",
-                    "sortOrder": 4,
+                    "sortOrder": 6,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "3b44420e-7a4d-497e-a3da-83b184135388",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1761811152774-370okdqo07f.jpg",
-                    "sortOrder": 5,
+                    "sortOrder": 7,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "a6a23842-1e5c-4f71-8472-c05c5d079af7",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1761811152775-ou1gc0iwjm.jpg",
-                    "sortOrder": 6,
+                    "sortOrder": 8,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "63302dac-278f-419d-ac90-540081abe879",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1761638021553-tc628dfyea.jpg",
-                    "sortOrder": 7,
+                    "sortOrder": 9,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "d8f8498e-83c0-4d3f-9cc4-f1ddce054289",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1764294283389-mhe4mgftj8.jpg",
-                    "sortOrder": 8,
+                    "sortOrder": 10,
                     "description": "",
                     "isSelected": true
                   },
                   {
                     "id": "262cd9df-be8d-411b-bada-7dd6d982c5f0",
                     "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_hero/1764294283389-ma8pcjixg.jpg",
-                    "sortOrder": 9,
+                    "sortOrder": 11,
                     "description": "",
                     "isSelected": true
                   }
                 ],
-                "description": "",
+                "videos": [],
                 "mediaType": "image",
-                "videos": []
+                "description": " "
               },
               "closing": {
                 "title": "Pine Hill Park Pension & Caravan, Gangneung ",
