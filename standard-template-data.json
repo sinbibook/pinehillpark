@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.36.0",
-    "generatedAt": "2026-07-27T08:32:50.957316991Z",
+    "version": "1.37.0",
+    "generatedAt": "2026-07-27T08:33:18.807880987Z",
     "templateType": "full_banner_wipe",
     "propertyId": "b2325335-6697-437e-be25-5f6e33dd3e12",
     "homepageId": "12eb3b7b-2220-4982-ba06-837d1c627913"
@@ -2217,10 +2217,10 @@
                     "blockId": null
                   },
                   {
-                    "id": "6a417a44-1f26-49e7-ae6c-0d6dff5c5e10",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_signature/1761638021553-azfrz18e5hb.jpg",
+                    "id": "a3f6c755-699e-4f29-8af1-1ed27b3e3c77",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/12eb3b7b-2220-4982-ba06-837d1c627913/index_signature/1785141195935-pitzrbnwxx.jpg",
                     "sortOrder": 3,
-                    "description": "수영장",
+                    "description": "",
                     "isSelected": true,
                     "blockId": null
                   }
